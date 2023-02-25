@@ -4,6 +4,12 @@ const app = express();
 const dotenv = require("dotenv");
 dotenv.config();
 
+const cors = require('cors');
+app.use(cors({
+  origin : "http://localhost:3000",
+  methods : "POST"
+}))
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

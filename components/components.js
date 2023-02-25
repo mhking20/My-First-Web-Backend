@@ -1,9 +1,11 @@
 const model = require("../model/model");
+const jwt = require('jsonwebtoken')
 
 const postuser = async (req, res) => {
   try {
     const post = await model.create(req.body);
-    res.status(201).json({ post });
+    const token = jwt.sign({UserID : post._id , username : post.username} , "secret")
+    res.status(201).json({msg : "User Created" , token});
   } catch (error) {
     console.log(error);
   }
@@ -20,8 +22,10 @@ const getuser = async (req, res) => {
 
 const getsingleuser = async (req, res) => {
   try {
-    const { id } = req.params;
-    const get = await model.findOne({ _id: id });
+    const headertoken = req.headers.authorization;
+    const token = headertoken.split(' ')[1]
+    const decoded = jwt.decode(token)
+    const get = await model.findOne({_id : decoded.UserID});
     res.status(200).json({ get });
   } catch (error) {
     console.log(error);
