@@ -6,7 +6,7 @@ dotenv.config();
 
 const cors = require('cors');
 app.use(cors({
-  origin : "http://localhost:3000",
+  origin : "https://mian-first-web.netlify.app",
   methods : "POST"
 }))
 
