@@ -7,12 +7,13 @@ dotenv.config();
 const cors = require('cors');
 app.use(cors({
   origin : "https://mian-first-web.netlify.app",
-  methods : "POST"
+  methods : ["GET" , "POST" , "DELETE" , "PATCH"]
 }))
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 
 const router = require("./routers/routers");
 app.use("/api/v1", router);
