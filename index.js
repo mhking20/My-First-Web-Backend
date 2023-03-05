@@ -16,7 +16,9 @@ app.use(bodyParser.json());
 
 
 const router = require("./routers/routers");
-app.use("/api/v1", router);
+const Task_Manager_router = require("./routers/task_manager_router")
+app.use("/api/v1/user", router);
+app.use("/api/v1/task", Task_Manager_router);
 
 app.use("/", (req, res) => {
   res.send("Server Running");
