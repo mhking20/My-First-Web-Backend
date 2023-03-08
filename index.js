@@ -5,7 +5,10 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const cors = require('cors');
-app.use(cors())
+app.use(cors({
+  origin : "https://mian-first-web.netlify.app",
+  methods : ["GET" , "POST" , "DELETE" , "PATCH"]
+}))
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,9 +25,9 @@ app.use("/", (req, res) => {
   res.send("Server Running");
 });
 
-// setInterval(function() {
-//     app.get("https://mian-first-web.netlify.app");
-// }, 3000); // every 5 minutes (300000)
+setInterval(function() {
+    app.get("https://mian-first-web.netlify.app");
+}, 3000); // every 5 minutes (300000)
 
 const connectDB = require("./connectDB/connectDB");
 const start = async () => {
