@@ -10,9 +10,6 @@ app.use(cors({
   methods : ["GET" , "POST" , "DELETE" , "PATCH"]
 }))
 
-const preventSleep = require("node-prevent-sleep");
-preventSleep.enable();
-
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
