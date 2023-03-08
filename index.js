@@ -6,7 +6,7 @@ dotenv.config();
 
 const cors = require('cors');
 app.use(cors({
-  origin : "https://mian-first-web.netlify.app",
+  origin : ["https://mian-first-web.netlify.app","https://mhking20-sturdy-umbrella-jvpqxjjx46gf5qrv.github.dev"],
   methods : ["GET" , "POST" , "DELETE" , "PATCH"]
 }))
 
