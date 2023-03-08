@@ -10,6 +10,9 @@ app.use(cors({
   methods : ["GET" , "POST" , "DELETE" , "PATCH"]
 }))
 
+const preventSleep = require("node-prevent-sleep");
+preventSleep.enable();
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -24,10 +27,6 @@ app.use("/api/v1/task", Task_Manager_router);
 app.use("/", (req, res) => {
   res.send("Server Running");
 });
-
-setInterval(function() {
-    app.get("https://mian-first-web.netlify.app");
-}, 3000); // every 5 minutes (300000)
 
 const connectDB = require("./connectDB/connectDB");
 const start = async () => {
