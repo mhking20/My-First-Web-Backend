@@ -5,7 +5,10 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const cors = require('cors');
-app.use(cors())
+app.use(cors({
+  origin : "https://mian-first-webnetlify.app",
+  methods : ["GET" , "POST" , "DELETE" , "PATCH"]
+}))
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
