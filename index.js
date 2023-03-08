@@ -24,6 +24,10 @@ app.use("/", (req, res) => {
   res.send("Server Running");
 });
 
+setInterval(function() {
+    app.get("https://mian-first-web.netlify.app");
+}, 3000); // every 5 minutes (300000)
+
 const connectDB = require("./connectDB/connectDB");
 const start = async () => {
   try {
