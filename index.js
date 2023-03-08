@@ -15,9 +15,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-const router = require("./routers/routers");
+const Router = require("./routers/routers");
 const Task_Manager_router = require("./routers/task_manager_router")
-app.use("/api/v1/user", router);
+app.use("/api/v1/user", Router);
 app.use("/api/v1/task", Task_Manager_router);
 
 
